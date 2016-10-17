@@ -1,5 +1,6 @@
 \documentclass[a4paper,11pt]{article}
 
+\usepackage[backend=biber]{biblatex}
 \usepackage{color}
 
 % Custom commands ===============================================================
@@ -7,8 +8,10 @@
 % ===============================================================================
 
 \title{Natural Detective: A Gamified Tutorial \\ on Natural Deduction \\ \medskip \Large{Project Proposal}}
-\author{Helena Josol}
+\author{Helena Josol \autocite{adjl-blog}}
 \date{}
+
+\addbibresource{References.bib}
 
 \begin{document}
 
@@ -75,5 +78,8 @@ Limit scope: answering these in advance:
 
 \section{Resources}
 Consider resources and their availability
+
+\newpage
+\printbibliography
 
 \end{document}
