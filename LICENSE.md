@@ -1,2 +1,1 @@
-
-Copyright (C) 2016 Adei Josol
+(c) 2016 Adei Josol
