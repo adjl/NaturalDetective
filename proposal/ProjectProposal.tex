@@ -1,6 +1,10 @@
 \documentclass[a4paper,11pt]{article}
 
-\title{Natural Detective: A Serious Game for Teaching Natural Deduction}
+\usepackage{color}
+
+\newcommand{\draft}[1]{\textcolor{red}{#1}}
+
+\title{Natural Detective: A Gamified Tutorial \\ on Natural Deduction \\ \medskip \Large{Project Proposal}}
 \author{Helena Josol}
 \date{}
 
@@ -8,7 +12,66 @@
   
 \maketitle
 
-\begin{abstract}
-\end{abstract}
+% \begin{abstract}
+% \end{abstract}
+
+\section{Problem Description} % NB: Refer to the slides as you write this
+Proposal will be similar to the dissertation intro. Write in future tense.
+\begin{enumerate}
+  \item What will I do?
+    \begin{itemize}
+      \item \draft{To build an educational game that teaches introductory natural deduction in propositional logic.}
+    \end{itemize}
+    \begin{enumerate}
+      \item Why is it meaningful / relevant?
+      \item Why is it interesting?
+      \item An outstanding problem
+      \item Aims: \textit{\dots identify, at a high level, what you hope to achieve}
+      \item Objectives: \textit{\dots quantitative and qualitative measures by which the completion of your project will be judged (How to know that my project is a success? Setting my own assessment criteria.)}
+        \begin{itemize}
+          \item Objective 1: Design and build a system that does\dots
+          \item Objective 2: Evaluate its performance in terms of\dots
+          \item Objective 3: Present guidelines for future systems that do\dots
+        \end{itemize}
+    \end{enumerate}
+  \item Why will I do it?
+    \begin{itemize}
+      \item \draft{Games are good for education and are very suitable to make mathematical concepts more accessible. Features:}
+      \begin{itemize}
+        \item \draft{Accessibility: games are easy to pick up (unlike, say, a textbook). One reason is that they can restrain the things you can do: they will not allow you to make "illegal" moves, and they can limit the available moves to those relevant to the problem. In contrast, with exercises in a textbook nobody tells you how to get started, and whether what you're doing makes sense.}
+        \item \draft{Engagement: similarly, games are hard to put down. That is because they're fun (at least, that's the intention). The consequence is that you can spend a long time learning something without even noticing.}
+        \item \draft{Instant feedback: a game will tell you immediately when your answer is wrong. Every theory of learning will tell you that that's very important, since the sequence of thoughts leading you to a wrong answer should still be fresh, if you want to find out where you went wrong. This is why tutorials are so good, compared to (most) lectures, and why good tutors are essential.}
+      \end{itemize}
+    \end{itemize}
+  \item How will I do it?: (Have a rudimentary game idea already. Ask Willem for feedback and input.)
+    \begin{enumerate}
+      \item Learning objective: What do you want the player to learn? (e.g.\ Learn to construct a finite automaton)
+      \item Player goals (e.g.\ Construct a finite automaton corresponding to a given regular expression)
+      \item Player moves (e.g.\ Add states; add transitions; make final states; change transition labels; validate answer)
+      \item Interface: \draft{The challenge is in making a good interface.}
+      \item Feedback \& rewards
+      \item Level design (Collaborate with Willem on this.)
+      \item Platform: \draft{It will be a web application to keep it accessible (e.g.\ removes the need for building, installing and setting the software up, no lengthy documentation and manuals), making use of the Phaser game framework on NodeJS.}
+    \end{enumerate}
+\end{enumerate}
+% NB: Don't forget to check my notebook
+
+\section{Requirements Specification} % NB: Refer to the slides as you write this
+Limit scope: answering these in advance:
+\begin{itemize}
+  \item Why didn't you\dots?
+  \item Why did you focus on\dots?
+\end{itemize}
+% NB: Don't forget to check my notebook
+
+\section{Project Plan} % NB: Refer to the slides as you write this
+\begin{itemize}
+  \item Make a Gantt chart
+  \item Plan waypoints and endpoints
+\end{itemize}
+% NB: Don't forget to check my notebook
+
+\section{Resources}
+Consider resources and their availability
 
 \end{document}
