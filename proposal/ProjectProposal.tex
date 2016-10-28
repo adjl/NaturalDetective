@@ -80,8 +80,6 @@ As mentioned previously, serious games can address issues with, and can bring mu
   \item \textbf{Engagement and fun.} \comment{TBC}
 \end{enumerate}
 
-\section{Scope \& Limitations} % NB: Refer to the slides as you write this
-Why didn't you\dots? Why did you focus on\dots?
 % \item Engagement: similarly, games are hard to put down. That is because they're fun (at least, that's the intention). The consequence is that you can spend a long time learning something without even noticing.
 % depending on how they deliver the subject, can help make it interesting, entertaining, and (at best) fun.
 
@@ -106,6 +104,19 @@ The overall success of the project will be determined based on 1) the number of 
   \item Evaluate the efficacy of the game in terms of teaching the concepts of ND by comparing the results of two groups of students, where one group has played the game, and the other learnt ND through a written tutorial. \comment{Create my own written tutorial, or point them to somewhere else? Which gives more fair results?}
 \end{enumerate}
 \comment{Other objectives?}
+
+\section{Scope \& Limitations}
+The fruit of the project---the full and complete game---does not strive to be a comprehensive resource that covers all parts of natural deduction, nor to be a feature-rich system that allows flexible use among a range of implemented actions. The project is restricted but focused in scope, and the limitations of the work, in both subject matter and technology, are outlined below:
+\begin{itemize}
+  \item The pedagogical content of the game will be on propositional logic only, to the exclusion of universal quantifiers as found in first-order logic.
+  \item As above, the game will follow the laws of classical logic, rather than that of intuitionistic logic and its non-use of double negation and/or the law of excluded middle.
+  \item Similarly, the game will not consider temporal (modal) logic, \dots \comment{Say more and phrase this better. Temporal logic sounds cool, so consider adding it as an expansion.}
+  \item The game will adapt an interpretation of Ja\'{s}kowski/Fitch's sequential proof and nested subproof presentation, over the Gentzen tree-like structure and the Suppes-Lemmon linear format. \autocite{pelletier2000history}
+  \item The game will assume that the player already has \emph{some} understanding of propositional logic; it will not teach propositional logic, only natural deduction! A brief review will be created for those who require it.
+  \item The game will allow for local single-player gameplay only; no online multiplayer features will be considered and implemented, forgoing the competitive aspects of gamification. \comment{Possible online scoreboard? Non-essential, just a possibility.}
+\end{itemize}
+
+\comment{Can reduce the scope even further, will be clearer later on. These are good as initial limits; can mention some of these as possible expansions.}
 
 \subsection{Learning Objective}
 What do you want the player to learn? (e.g.\ Learn to construct a finite automaton)
