@@ -1,14 +1,144 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper]{article}
 
-\title{Natural Detective: A Serious Game for Teaching Natural Deduction}
+\usepackage[UKenglish]{babel}
+\usepackage[backend=biber]{biblatex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{lmodern}
+
+% Custom commands ===============================================================
+\newcommand{\comment}[1]{[\textcolor{red}{#1}]} % \comment: Write comments in red
+% ===============================================================================
+
+\title{Natural Detective: A Serious Game for Learning \\ Natural Deduction in Propositional Logic \\
+  \medskip \Large{Project Proposal}}
 \author{Helena Josol}
 \date{}
 
+\addbibresource{References.bib}
+
 \begin{document}
-  
+
 \maketitle
 
-\begin{abstract}
-\end{abstract}
+% Proposal will be similar to the dissertation intro. Higher level than the literature review. Write in future tense.
+%
+% Write descriptively, analytically, evaluatively: check for gaps and assumptions. Delegate (repeating) explanations by referencing other papers.
+%
+% Tell them what you are going to say, tell them, tell them what you just said (guide the reader).
+
+\section{Problem Description}
+
+\subsection{Background}
+Natural deduction, along with other higher concepts in mathematics, is often first introduced and taught at the university level. Under the instruction of a professor and tutors, a student's learning on the subject is directed and focused on its essential parts. This ensures that the student will have familiarity and understanding of the main ideas, as opposed to a broad yet shallow overview of the entire topic.
+
+But without instructors, educating oneself on this proof calculus---as with other advanced topics, mathematics or not---can be a challenge given limited knowledge. Lacking guidance and prior experience, a self-taught student will be unable to correctly define the scope of their learning, identify integral points from unnecessary details, stretch their understanding further, properly evaluate their mistakes, nor keep themselves wholly engaged and accountable to their studies.
+
+\comment{I need to talk more about natural deduction, rather than just mentioning it. The ``subject'' of ND doesn't flow very well---it somehow needs to bridge.}
+
+What is found wanting then, in the case of self-education, is the presence of an active agent of teaching, i.e., merely having the resources (e.g.\ books, notes) available does not guarantee full absorption of the material. A human educator has always filled this void in more traditional settings, and nowadays an equivalent technological solution is fortunately becoming more evident and accepted: serious games.
+
+\emph{Serious games} are an emerging technology which employ the principles of gamification for pedagogical value. They provide entertaining yet effective ways to teach educational subjects, and act as accessible platforms to conduct training for corporate or military purposes. When not packaged as such, these topics and skills are normally taught in regular fashion (e.g.\ lecture, simulation), some of which render the material tedious, dull, or even difficult to learn.
+
+Because serious games add an active element to the learning process, in contrast to the passive mode of students self-teaching ``dry'' academic subjects, there are benefits to be gained in placing a serious game in the role of a ``teacher'', especially in a self-educating context.
+
+\comment{Citations needed for this section.}
+
+\subsection{Advantages of Serious Games}
+As mentioned previously, serious games can address issues with, and can bring much benefit to, the area of self-learning. The advantages to utilising this educational medium are as follows:
+\begin{enumerate}
+  \item \textbf{Self-contained environment.} A student will not need to check and cross-reference among many resources to fill in gaps in the material, as is the case when perusing, say, textbooks aimed at varying levels of expertise, which themselves may use different symbols and terminology to further add confusion. Having a learning environment designed as a coherent whole will lessen the need for a thorough background in the field, which then leaves it free to emphasise only what is important.
+  \item \textbf{Low barrier to entry.} Compared to most---if not, all---learning mediums, a game is welcoming and easier to begin using. As is characteristic of most games, a serious game can provide its own set of tutorials on how to manipulate the system. But the beauty comes in when the tutorials already teach the fundamentals of the subject subtly and gradually---the student begins to learn before they even realise!
+  \item \textbf{Interactivity.} A game enables, not just one, but a two-way continuous interaction between itself and the player. In the context of teaching, this is akin to a personal tutor taking careful note of the student's every action (e.g.\ a question asked, a step in a proof), which is beneficial in keeping the student's understanding correct, and their work sensible. Of course, a tutor is never always present, nor is one ever there when self-studying. Serious games address this lack.
+  \item \textbf{Ease-of-use (constraints).} Closely related to (3) is the ability of the game to constrain ``moves'' in response to player actions. For example, the number of possible succeeding moves is decreased given the previous one, or a certain action is denied because it is illegal. Some form of this assistance can be given by a tutor (only when they notice), but is simply absent when studying on one's own.
+  \item \textbf{Active feedback.} Again, similar to (3), a game has the capability of providing instantaneous and aggregate feedback. If a mistake were to be made, then the system can immediately highlight the error, allowing the player to correct and identify what they misunderstood. Additionally, assessments can be made on overall performance, citing areas of possible improvement (e.g.\ using more steps than necessary). Although mentioned and listed under (4), disallowing invalid moves, and allowing a subset of legal ones are themselves forms of feedback.
+  \item \textbf{Adapting difficulty.} To great benefit, game feedback behaviour as described in (4) and (5) can be adjusted to suit the player's individual needs, i.e., the enforced \emph{helpfulness} and \emph{strictness} of the game. As an example, a student who wishes for a more challenging environment can disable warnings and filtering of valid moves. Similarly, a student who would like to check their understanding step-wise is also able to do so.
+  \item \textbf{Non-traditional (creative) presentation.} \comment{TBC}
+  \item \textbf{Experimentation and playfulness.} \comment{TBC} % One feature that theSimilarly, a player can pick and choose various options and see what can be valid.
+  \item \textbf{Engagement and fun.} \comment{TBC}
+\end{enumerate}
+
+% \item Engagement: similarly, games are hard to put down. That is because they're fun (at least, that's the intention). The consequence is that you can spend a long time learning something without even noticing.
+% depending on how they deliver the subject, can help make it interesting, entertaining, and (at best) fun.
+
+In summary, serious games are excellent educational tools, and are very good candidate media for presenting mathematical concepts---especially the advanced and ``dull'' ones---in a more accessible and friendly manner.
+
+\comment{Citations sorely needed for this section.}
+
+\subsection{Aim}
+The aim of the project is to design and build a serious game that teaches \emph{natural deduction in propositional logic}, then evaluating its effectiveness in helping players learn. \comment{Not happy with this; just like with 1.1, I need to state why I chose natural deduction above other topics.}
+
+% Ex. Present guidelines for future systems that do...
+\subsection{Objectives}
+The overall success of the project will be determined based on 1) the number of quantitative and qualitative targets that will have been met on completion, and 2) the degree to which that they will have been satisfied. The assessment criteria are as follows:
+\begin{enumerate}
+  \item Develop a serious game that teaches natural deduction under classical propositional logic
+  \item Create a quick tutorial on propositional logic, for those who don't know \comment{Non-essential, but investigate further.}
+  \item Introduce all N rules of inference \comment{Must decide which rules to include (not too many, nor few). Best option: Use the same rules I learnt ND with. Name them individually in Objectives and Requirements?}
+  \item Evaluate the efficacy of the game in terms of teaching the concepts of ND by comparing the results of two groups of students, where one group has played the game, and the other learnt ND through a written tutorial. \comment{Create my own written tutorial, or point them to somewhere else? Which gives more fair results?}
+\end{enumerate}
+\comment{Other objectives?}
+
+\section{Scope \& Limitations}
+The fruit of the project---the full and complete game---does not strive to be a comprehensive resource that covers all parts of natural deduction, nor to be a feature-rich system that allows flexible use among a range of implemented actions. The project is restricted but focused in scope, and the limitations of the work, in both subject matter and technology, are outlined below:
+\begin{itemize}
+  \item The pedagogical content of the game will be on propositional logic only, to the exclusion of universal quantifiers as found in first-order logic.
+  \item As above, the game will follow the laws of classical logic, rather than that of intuitionistic logic and its non-use of double negation and/or the law of excluded middle.
+  \item Similarly, the game will not consider temporal (modal) logic, \dots \comment{Say more and phrase this better. Temporal logic sounds cool, so consider adding it as an expansion.}
+  \item The game will adapt an interpretation of Ja\'{s}kowski/Fitch's sequential proof and nested subproof presentation, over the Gentzen tree-like structure and the Suppes-Lemmon linear format. \autocite{pelletier2000history}
+  \item The game will assume that the player already has \emph{some} understanding of propositional logic; it will not teach propositional logic, only natural deduction! A brief review will be created for those who require it.
+  \item The game will allow for local single-player gameplay only; no online multiplayer features will be considered and implemented, forgoing the competitive aspects of gamification. \comment{Possible online scoreboard? Non-essential, just a possibility.}
+\end{itemize}
+
+\comment{Can reduce the scope even further, will be clearer later on. These are good as initial limits; can mention some of these as possible expansions.}
+
+\section{Requirements Specification}
+% The following section outlines and specifies the requirements the proposed features and functionality expected to be within the complete game.
+\comment{TBC}
+
+\section{Game Design}
+
+\subsection{Learning Objective}
+The objective of the game is to help players learn the method of natural deduction (under classical propositional logic), the various rules of inference, and how to use of them in order to prove a given conclusion from a set of premises.
+
+\subsection{Player Goals}
+\comment{Draft, rephrase} The goal of the player is to prove a conclusion from a series of premises, by ``reaching'' the conclusion through methodical construction of a proof line-by-line, carefully applying valid rules of inferences.
+
+\subsection{Player Moves}
+\comment{Draft, stream of thought} Select premise, select rule of inference, apply rule of inference by choosing target premises, create subproofs, use previous (derived) statements, validate/check answer, option to restart and give up (e.g.\ when taking too long, or too many steps), undo, save progress, calibrate difficulty, swap symbols with meaning (e.g.\ $A \rightarrow$ ``the apple is red'').
+
+\subsection{Interface}
+\comment{Draft, stream of thought} Point-and-click interface, no typing (or minimise it).
+
+\subsection{Feedback \& Rewards}
+\comment{Draft, really!} At every level completion/progress, level completion and fulfillment of secret criteria (completing the level in as few moves as possible), they get points, unlock badges/achievements, even easter eggs / concept/background stories, even some information on the mysterious ``villain/stranger''.
+
+\subsection{Level Design}
+\comment{Draft, really!} Each level is a progression in the story of [NAME] who turns out to be a natural at detective work. As the story progresses, the puzzles become harder. The game ends when all levels are completed, at the culmination and revelation of the mystery. The story line will be linear, so as to easily introduce/refresh propositional logic, and the concepts of natural deduction and the rules of inferences. They are given premises at each level, and they have to show that this conclusion is true (prove it). Needs more work... Need to show something graphical...
+
+% Ideas: 3 characters - detective, sidekick and this mysterious girl who gives them the conclusion, but she has to be convinced that it's true! (for mysterious reasons... actually, her mission was to help the two learn the art of natural deduction because they're ``special'', but she doesn't think they are (and she thinks her whole existence is very much contrived!)) [this is slowly revealed along the levels]
+
+\subsection{Platform}
+\comment{Draft, really! - longer than is necessary}  The resulting software will be a web application for reasons of availability, easy access and convenience on the the part of the players, mainly that developing it as a web application eliminates the need for technical knowledge on the part of the players in order to build, install and setup the software, in addition to having to read and consult lengthy technical documentation, manuals and readmes.
+
+Because the game will be deployed and hosted online, the programming language of choice is JavaScript for ease in web development, making use of the Phaser game framework on NodeJS for rapid prototyping and development.
+
+In addition to JavaScript being the language of the web, developing the game in this language will open the possibility of it being ported into a native application, either via React Native (mobile) and/or Electron (desktop), both of which employ JavaScript as their development language despite targetting different platforms. Doing so will make the game available to peruse offline, not requiring any Internet connectivity at all in order to play, in the case of a desktop port. Similarly, with a mobile port, the game will be made available to play anytime, anywhere!
+
+Despite the earlier elaboration of the benefits in porting the game to different platforms, the project is scoped and will be limited to developing a web application, as stated previously in section 2 of this proposal document. That was merely a discussion of the author on future work and how the game can be further improved upon, not merely for this game in particular but possibly for other serious games, perhaps in the hope that single framework can be created, with which a multitude of serious games can be made and proliferate.
+
+\section{Project Management}
+\comment{TBC}
+\subsection{Gantt Chart}
+\comment{TBC}
+\subsection{Waypoints and Endpoints}
+\comment{TBC}
+
+\section{Resources}
+\comment{TBC}
+
+\printbibliography
 
 \end{document}

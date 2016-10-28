@@ -1,3 +1,3 @@
 Natural Detective
 =================
-A serious game that teaches natural deduction in propositional logic
+[Serious Game] A Gamified Tutorial on Natural Deduction in Propositional Logic
