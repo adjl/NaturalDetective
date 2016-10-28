@@ -85,8 +85,6 @@ As mentioned previously, serious games can address issues with, and can bring mu
 
 In summary, serious games are excellent educational tools, and are very good candidate media for presenting mathematical concepts---especially the advanced and ``dull'' ones---in a more accessible and friendly manner.
 
-\section{Game Design} % NB: Refer to the slides as you write this
-How will I do it?: Have a rudimentary game idea already. Ask Willem for feedback and input.
 \comment{Citations sorely needed for this section.}
 
 \subsection{Aim}
@@ -120,27 +118,38 @@ The fruit of the project---the full and complete game---does not strive to be a 
 % The following section outlines and specifies the requirements the proposed features and functionality expected to be within the complete game.
 \comment{TBC}
 
+\section{Game Design}
+
 \subsection{Learning Objective}
-What do you want the player to learn? (e.g.\ Learn to construct a finite automaton)
+The objective of the game is to help players learn the method of natural deduction (under classical propositional logic), the various rules of inference, and how to use of them in order to prove a given conclusion from a set of premises.
 
 \subsection{Player Goals}
-e.g.\ Construct a finite automaton corresponding to a given regular expression
+\comment{Draft, rephrase} The goal of the player is to prove a conclusion from a series of premises, by ``reaching'' the conclusion through methodical construction of a proof line-by-line, carefully applying valid rules of inferences.
 
 \subsection{Player Moves}
-e.g.\ Add states; add transitions; make final states; change transition labels; validate answer
+\comment{Draft, stream of thought} Select premise, select rule of inference, apply rule of inference by choosing target premises, create subproofs, use previous (derived) statements, validate/check answer, option to restart and give up (e.g.\ when taking too long, or too many steps), undo, save progress, calibrate difficulty, swap symbols with meaning (e.g.\ $A \rightarrow$ ``the apple is red'').
 
 \subsection{Interface}
-The challenge is in making a good interface.
+\comment{Draft, stream of thought} Point-and-click interface, no typing (or minimise it).
 
 \subsection{Feedback \& Rewards}
+\comment{Draft, really!} At every level completion/progress, level completion and fulfillment of secret criteria (completing the level in as few moves as possible), they get points, unlock badges/achievements, even easter eggs / concept/background stories, even some information on the mysterious ``villain/stranger''.
 
 \subsection{Level Design}
-Collaborate with Willem on this.
+\comment{Draft, really!} Each level is a progression in the story of [NAME] who turns out to be a natural at detective work. As the story progresses, the puzzles become harder. The game ends when all levels are completed, at the culmination and revelation of the mystery. The story line will be linear, so as to easily introduce/refresh propositional logic, and the concepts of natural deduction and the rules of inferences. They are given premises at each level, and they have to show that this conclusion is true (prove it). Needs more work... Need to show something graphical...
+
+% Ideas: 3 characters - detective, sidekick and this mysterious girl who gives them the conclusion, but she has to be convinced that it's true! (for mysterious reasons... actually, her mission was to help the two learn the art of natural deduction because they're ``special'', but she doesn't think they are (and she thinks her whole existence is very much contrived!)) [this is slowly revealed along the levels]
 
 \subsection{Platform}
+\comment{Draft, really! - longer than is necessary}  The resulting software will be a web application for reasons of availability, easy access and convenience on the the part of the players, mainly that developing it as a web application eliminates the need for technical knowledge on the part of the players in order to build, install and setup the software, in addition to having to read and consult lengthy technical documentation, manuals and readmes.
 
+Because the game will be deployed and hosted online, the programming language of choice is JavaScript for ease in web development, making use of the Phaser game framework on NodeJS for rapid prototyping and development.
 
 \section{Project Management} % NB: Refer to the slides as you write this
+In addition to JavaScript being the language of the web, developing the game in this language will open the possibility of it being ported into a native application, either via React Native (mobile) and/or Electron (desktop), both of which employ JavaScript as their development language despite targetting different platforms. Doing so will make the game available to peruse offline, not requiring any Internet connectivity at all in order to play, in the case of a desktop port. Similarly, with a mobile port, the game will be made available to play anytime, anywhere!
+
+Despite the earlier elaboration of the benefits in porting the game to different platforms, the project is scoped and will be limited to developing a web application, as stated previously in section 2 of this proposal document. That was merely a discussion of the author on future work and how the game can be further improved upon, not merely for this game in particular but possibly for other serious games, perhaps in the hope that single framework can be created, with which a multitude of serious games can be made and proliferate.
+
 \subsection{Gantt Chart}
 \subsection{Waypoints and Endpoints}
 
