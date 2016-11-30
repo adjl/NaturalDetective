@@ -6,7 +6,7 @@
 
 (enable-console-print!)
 
-(defonce game (js/Phaser.Game. 800 600 js/Phaser.AUTO "game-container"))
+(defonce game (js/Phaser.Game. 800 600 js/Phaser.AUTO "game"))
 
 (defn main []
   (.. game -state (add "boot" Boot))
