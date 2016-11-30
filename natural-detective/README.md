@@ -2,5 +2,5 @@
 A Serious Game for Learning Natural Deduction in Propositional Logic
 
 ## Usage
-- `lein figwheel`
+- `lein play`
 - Open `localhost:3449`
