@@ -1,5 +1,6 @@
-# phaser-cljs-boilerplate
-A boilerplate for making games in clojurescript using phaser.io
+# Natural Detective
+A Serious Game for Learning Natural Deduction in Propositional Logic
 
-## Use
-Just go ahead and `lein figwheel`! When the server has started connect to `localhost:3449` to see the blank phaser game.
+## Usage
+- `lein figwheel`
+- Open `localhost:3449`
