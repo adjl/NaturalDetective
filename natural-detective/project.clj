@@ -7,7 +7,6 @@
                            [com.cemerick/piggieback "0.2.1"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-figwheel "0.5.8"]]
-            :aliases {"play" ["do" "figwheel" ["clean"]]}
             :clean-targets ^{:protect false} ["figwheel_server.log"
                                               "resources/public/js/game.js"
                                               "resources/public/js/out"
