@@ -6,6 +6,7 @@
                            [org.clojure/tools.namespace "0.2.11"]
                            [org.clojure/tools.nrepl "0.2.12"]
                            [com.cemerick/piggieback "0.2.1"]
+                           [cljsjs/phaser "2.6.1-0"]
                            [proto-repl "0.3.1"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-figwheel "0.5.8"]]

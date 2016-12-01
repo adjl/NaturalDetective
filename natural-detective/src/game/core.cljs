@@ -1,5 +1,6 @@
 (ns ^:figwheel-always game.core
-  (:require [game.boot :refer [Boot]]
+  (:require [cljsjs.phaser]
+            [game.boot :refer [Boot]]
             [game.preload :refer [Preload]]
             [game.title-screen :refer [TitleScreen]]
             [game.main-game :refer [MainGame]]))
