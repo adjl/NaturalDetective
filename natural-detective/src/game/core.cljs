@@ -10,10 +10,11 @@
 (defonce game (js/Phaser.Game. 800 600 js/Phaser.AUTO "game"))
 
 (defn -main []
-  (.. game -state (add "boot" Boot))
-  (.. game -state (add "preload" Preload))
-  (.. game -state (add "titleScreen" TitleScreen))
-  (.. game -state (add "mainGame" MainGame))
-  (.. game -state (start "boot")))
+  (let [state (.-state game)]
+    (.add state "boot" Boot)
+    (.add state "preload" Preload)
+    (.add state "titleScreen" TitleScreen)
+    (.add state "mainGame" MainGame)
+    (.start state "boot")))
 
 (-main)

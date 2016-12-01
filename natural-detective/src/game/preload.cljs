@@ -4,6 +4,9 @@
   (let []
     (reify Object
       (preload [this]
-        #_(.. game -load (image "some-asset" "assets/some-asset.png")))
+        (.. game -load (image "logo" "phaser.png")))
       (create [this]
-        #_(.. game -add (sprite 0 0 "some-asset"))))))
+        (let [center-x (.. game -world -centerX)
+              center-y (.. game -world -centerY)
+              logo (.. game -add (sprite center-x center-y "logo"))]
+          (.. logo -anchor (setTo 0.5 0.5)))))))
