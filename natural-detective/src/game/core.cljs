@@ -18,13 +18,18 @@
         logo (.. game -add (sprite center-x center-y "logo"))]
     (.. logo -anchor (setTo 0.5 0.5))))
 
-(defn update [])
+(defn update-state []
+  (.log js/console "Updating..."))
+
+(defn render []
+  (.log js/console "Rendering..."))
 
 (defn -main []
   (let [state (.-state game)]
     (.add state "preload" (clj->js {:preload preload}))
     (.add state "create" (clj->js {:create create}))
-    (.add state "update" (clj->js {:update update}))
+    (.add state "update" (clj->js {:update update-state}))
+    (.add state "render" (clj->js {:render render}))
     (.start state "preload")))
 
 (-main)
