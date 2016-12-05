@@ -11,8 +11,7 @@
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-figwheel "0.5.8"]]
             :clean-targets ^{:protect false} ["figwheel_server.log"
-                                              "resources/public/js/game.js"
-                                              "resources/public/js/out"
+                                              "resources/public/js"
                                               "target"]
             :cljsbuild {:builds [{:id "game"
                                   :source-paths ["src"]
