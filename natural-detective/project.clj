@@ -10,18 +10,27 @@
                            [proto-repl "0.3.1"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-figwheel "0.5.8"]]
-            :clean-targets ^{:protect false} ["figwheel_server.log"
+            :hooks [leiningen.cljsbuild]
+            :clean-targets ^{:protect false} [".lein-failures"
+                                              "figwheel_server.log"
                                               "resources/public/js"
-                                              "target"]
-            :cljsbuild {:builds [{:id "game"
-                                  :source-paths ["src"]
-                                  :figwheel true
-                                  :compiler {:main "game.core"
-                                             :asset-path "js/out"
-                                             :output-to "resources/public/js/game.js"
-                                             :output-dir "resources/public/js/out"}}]}
+                                              "resources/test/test.out.js"
+                                              :target-path]
+            :cljsbuild {:test-commands {"test" ["bin/phantomjs"
+                                                "resources/test/test.js"
+                                                "resources/test/test.html"]}
+                        :builds
+                        {:dev {:source-paths ["src"]
+                               :figwheel true
+                               :compiler {:main "game.core"
+                                          :asset-path "js/out"
+                                          :output-to "resources/public/js/game.js"
+                                          :output-dir "resources/public/js/out"
+                                          :optimizations :whitespace}}
+                         :test {:source-paths ["src" "test"]
+                                :compiler {:output-to "resources/test/test.out.js"}}}}
             :figwheel {:css-dirs ["resources/public/css"]
-                       :builds-to-start ["game"]
+                       :builds-to-start ["dev"]
                        :nrepl-port 7888
                        :nrepl-host "localhost"
                        :validate-interactive :fix})
