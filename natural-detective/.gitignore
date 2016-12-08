@@ -1,5 +1,6 @@
 .lein-failures
 .lein-repl-history
+.nrepl-port
 figwheel_server.log
 resources/public/js/
 resources/test/game-test.js

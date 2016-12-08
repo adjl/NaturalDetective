@@ -26,13 +26,12 @@
                                :compiler {:main "game.core"
                                           :asset-path "js/out"
                                           :output-to "resources/public/js/game.js"
-                                          :output-dir "resources/public/js/out"
-                                          :optimizations :whitespace}}
+                                          :output-dir "resources/public/js/out"}}
                          :test {:source-paths ["src" "test"]
                                 :compiler {:output-to "resources/test/game-test.js"
                                            :optimizations :whitespace}}}}
             :figwheel {:css-dirs ["resources/public/css"]
-                       :builds-to-start ["dev"]
+                       :builds-to-start [:dev]
                        :nrepl-port 7888
                        :nrepl-host "localhost"
                        :validate-interactive :fix})
