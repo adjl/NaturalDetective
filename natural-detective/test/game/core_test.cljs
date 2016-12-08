@@ -1,4 +1,5 @@
-(ns game.core-test)
+(ns game.core-test
+  (:require [cljs.test :refer-macros [deftest is]]))
 
-(defn run []
-  (assert false))
+(deftest core-test []
+  (is true))

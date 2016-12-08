@@ -10,7 +10,8 @@
                            [proto-repl "0.3.1"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-figwheel "0.5.8"]]
-            :hooks [leiningen.cljsbuild]
+            :aliases {"update" ["do" "clean," "deps," "check"]
+                      "cljstest" ["do" "clean," "cljsbuild" "test"]}
             :clean-targets ^{:protect false} [".lein-failures"
                                               "figwheel_server.log"
                                               "resources/public/js"
@@ -28,7 +29,8 @@
                                           :output-dir "resources/public/js/out"
                                           :optimizations :whitespace}}
                          :test {:source-paths ["src" "test"]
-                                :compiler {:output-to "resources/test/test.out.js"}}}}
+                                :compiler {:output-to "resources/test/test.out.js"
+                                           :optimizations :whitespace}}}}
             :figwheel {:css-dirs ["resources/public/css"]
                        :builds-to-start ["dev"]
                        :nrepl-port 7888
