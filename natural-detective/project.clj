@@ -15,7 +15,7 @@
             :clean-targets ^{:protect false} [".lein-failures"
                                               "figwheel_server.log"
                                               "resources/public/js"
-                                              "resources/test/test.out.js"
+                                              "resources/test/game-test.js"
                                               :target-path]
             :cljsbuild {:test-commands {"test" ["bin/phantomjs"
                                                 "resources/test/test.js"
@@ -29,7 +29,7 @@
                                           :output-dir "resources/public/js/out"
                                           :optimizations :whitespace}}
                          :test {:source-paths ["src" "test"]
-                                :compiler {:output-to "resources/test/test.out.js"
+                                :compiler {:output-to "resources/test/game-test.js"
                                            :optimizations :whitespace}}}}
             :figwheel {:css-dirs ["resources/public/css"]
                        :builds-to-start ["dev"]

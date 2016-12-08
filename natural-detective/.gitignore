@@ -2,5 +2,5 @@
 .lein-repl-history
 figwheel_server.log
 resources/public/js/
-resources/test/test.out.js
+resources/test/game-test.js
 target/
