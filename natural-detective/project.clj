@@ -11,7 +11,7 @@
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-figwheel "0.5.8"]]
             :aliases {"update" ["do" "clean," "deps," "check"]
-                      "cljstest" ["do" "clean," "cljsbuild" "auto"]}
+                      "cljstest" ["do" "clean," "cljsbuild" "auto" "test"]}
             :clean-targets ^{:protect false} [".lein-failures"
                                               "figwheel_server.log"
                                               "resources/public/js"
