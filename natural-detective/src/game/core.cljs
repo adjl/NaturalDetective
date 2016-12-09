@@ -1,4 +1,4 @@
-(ns ^:figwheel-always game.core
+(ns game.core
   (:require [cljsjs.phaser]
             [game.game-stage :refer [GameStage]]
             [game.level-select :refer [LevelSelect]]
