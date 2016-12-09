@@ -24,9 +24,9 @@
                         {:dev {:source-paths ["src"]
                                :figwheel true
                                :compiler {:main "game.core"
-                                          :asset-path "js/out"
+                                          :asset-path "js"
                                           :output-to "resources/public/js/game.js"
-                                          :output-dir "resources/public/js/out"}}
+                                          :output-dir "resources/public/js"}}
                          :test {:source-paths ["src" "test"]
                                 :compiler {:output-to "resources/test/game-test.js"
                                            :optimizations :whitespace}}}}
