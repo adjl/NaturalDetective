@@ -2,6 +2,7 @@
 A Serious Game for Learning Natural Deduction in Propositional Logic
 
 ## Usage
-- `lein do check, clean, deps`
+- `lein update`
 - `lein figwheel`
+- `lein cljstest`
 - `localhost:3449`
