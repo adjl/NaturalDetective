@@ -4,13 +4,11 @@
 
 (deftest test-double-negation-introduction
   (is (= [:not [:not :P]] (r/double-negation-introduction :P)))
-  (is (= [:not [:not [:not :P]]]
-         (r/double-negation-introduction [:not :P]))))
+  (is (= [:not [:not [:not :P]]] (r/double-negation-introduction [:not :P]))))
 
 (deftest test-double-negation-elimination
   (is (= :P (r/double-negation-elimination [:not [:not :P]])))
-  (is (= [:not :P]
-         (r/double-negation-elimination [:not [:not [:not :P]]]))))
+  (is (= [:not :P] (r/double-negation-elimination [:not [:not [:not :P]]]))))
 
 (deftest test-tautology
   (is (= :P (r/tautology [:and :P :P])))
