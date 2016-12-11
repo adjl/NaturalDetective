@@ -8,17 +8,22 @@
 ;; <Not> ::= :not
 ;; <Connective> ::= :and | :or
 
-(defn tautology
-  "P ∧ P ≡ P ∨ P ≡ P"
-  ([premise]
-   (if (keyword? premise)
-     premise
-     (apply tautology premise)))
-  ([connective P Q]
-   (let [P (tautology P)
-         Q (tautology Q)]
-     (if (= P Q) P [connective P Q])))
-  #_([connective P Q & R] ; Flattening premises
-     (->> (-> (into [P Q] R) flatten)
-          (filter #(not= connective %))
-          (reduce (fn [P Q] (tautology connective P Q))))))
+;; Rules of Replacement (Rules of Equivalence)
+;; - Double Negation: Introduction, Elimination
+;; - Tautology
+;; - Commutativity
+;; - Associativity
+;; - Distributivity
+;; - De Morgan's Laws (De Morgan's Rule)
+;; - Transposition
+;; - Material Implication
+;; - Exportation?
+;; - Negation introduction?
+
+;; References
+;; https://en.wikipedia.org/wiki/List_of_logic_symbols
+;; https://en.wikipedia.org/wiki/Proposition
+;; https://en.wikipedia.org/wiki/Premise
+;; https://en.wikipedia.org/wiki/Rule_of_inference
+;; https://en.wikipedia.org/wiki/Rule_of_replacement
+;; https://en.wikipedia.org/wiki/Double_negation
