@@ -36,9 +36,13 @@
   (second proposition))
 
 ;; References
-;; https://en.wikipedia.org/wiki/List_of_logic_symbols
-;; https://en.wikipedia.org/wiki/Proposition
-;; https://en.wikipedia.org/wiki/Premise
-;; https://en.wikipedia.org/wiki/Rule_of_inference
-;; https://en.wikipedia.org/wiki/Rule_of_replacement
-;; https://en.wikipedia.org/wiki/Double_negation
+;; https://en.wikipedia.org/wiki/Rule_of_replacement, 11/12/16
+;; https://en.wikipedia.org/wiki/Double_negation, 11/12/16
+;; https://en.wikipedia.org/wiki/Tautology_(rule_of_inference), 11/12/16
+;; https://en.wikipedia.org/wiki/Commutative_property, 11/12/16
+
+;; https://en.wikipedia.org/wiki/Rule_of_inference, 11/12/16
+;; https://en.wikipedia.org/wiki/Premise, 11/12/16
+
+;; https://en.wikipedia.org/wiki/List_of_logic_symbols, 11/12/16
+;; https://en.wikipedia.org/wiki/Proposition, 11/12/16
