@@ -1,5 +1,13 @@
 (ns game.natural-deduction)
 
+;; Premise Backus-Naur Form
+;; <Premise> ::= <Statement>
+;; 						 | [<Not> <Premise>]
+;; 						 | [<Connective> <Premise> <Premise>]
+;; <Statement> ::= :A | :B | ...
+;; <Not> ::= :not
+;; <Connective> ::= :and | :or
+
 (defn tautology
   "P ∧ P ≡ P ∨ P ≡ P"
   ([premise]
