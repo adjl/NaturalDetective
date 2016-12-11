@@ -7,3 +7,7 @@
   (is (= (nd/double-negation-introduction [:not :P])
          [:not [:not [:not :P]]])))
 
+(deftest test-double-negation-elimination
+  (is (= (nd/double-negation-elimination [:not [:not :P]]) :P))
+  (is (= (nd/double-negation-elimination [:not [:not [:not :P]]])
+         [:not :P])))

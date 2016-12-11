@@ -24,6 +24,13 @@
   [proposition]
   [:not [:not proposition]])
 
+(defn double-negation-elimination "¬¬P -> P"
+  [proposition]
+  (let [proposition (flatten proposition)]
+    (if (odd? (count proposition))
+      (last proposition)
+      (->> proposition (take-last 2) vec))))
+
 ;; References
 ;; https://en.wikipedia.org/wiki/List_of_logic_symbols
 ;; https://en.wikipedia.org/wiki/Proposition
