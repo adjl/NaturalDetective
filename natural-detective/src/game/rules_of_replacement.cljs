@@ -35,8 +35,8 @@
 
 (defn tautology
   "(P ∧ P) → P, (P ∨ P) → P"
-  [proposition]
-  (second proposition))
+  [[_ proposition proposition]]
+  proposition)
 
 ;; References
 ;; https://en.wikipedia.org/wiki/Rule_of_replacement, 11/12/16
