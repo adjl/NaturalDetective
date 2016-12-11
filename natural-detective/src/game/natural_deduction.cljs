@@ -31,6 +31,10 @@
       (last proposition)
       (->> proposition (take-last 2) vec))))
 
+(defn tautology "(P ∧ P) → P, (P ∨ P) → P"
+  [proposition]
+  (second proposition))
+
 ;; References
 ;; https://en.wikipedia.org/wiki/List_of_logic_symbols
 ;; https://en.wikipedia.org/wiki/Proposition

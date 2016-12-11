@@ -11,3 +11,7 @@
   (is (= :P (nd/double-negation-elimination [:not [:not :P]])))
   (is (= [:not :P]
          (nd/double-negation-elimination [:not [:not [:not :P]]]))))
+
+(deftest test-tautology
+  (is (= :P (nd/tautology [:and :P :P])))
+  (is (= :P (nd/tautology [:or :P :P]))))
