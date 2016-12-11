@@ -20,6 +20,10 @@
 ;; - Exportation?
 ;; - Negation introduction?
 
+(defn double-negation-introduction "P -> ¬¬P"
+  [proposition]
+  [:not [:not proposition]])
+
 ;; References
 ;; https://en.wikipedia.org/wiki/List_of_logic_symbols
 ;; https://en.wikipedia.org/wiki/Proposition
