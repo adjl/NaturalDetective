@@ -34,12 +34,14 @@
       (->> proposition (take-last 2) vec))))
 
 (defn tautology
-  "(P ∧ P) → P, (P ∨ P) → P"
+  "(P ∧ P) → P
+   (P ∨ P) → P"
   [[_ proposition proposition]]
   proposition)
 
 (defn commutativity
-  "(P ∧ Q) ↔ (Q ∧ P), (P ∨ Q) ↔ (Q ∨ P)"
+  "(P ∧ Q) ↔ (Q ∧ P)
+   (P ∨ Q) ↔ (Q ∨ P)"
   [[connective propositionA propositionB]]
   [connective propositionB propositionA])
 
