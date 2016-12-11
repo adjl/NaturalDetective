@@ -60,12 +60,28 @@
     [connective [(_ :guard #(= connective)) P Q] R]
     [connective P [connective Q R]]))
 
+(defn distributivity
+  "(P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ (Q ∧ R))
+   (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ (Q ∨ R))
+   (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (Q ∧ R))
+   (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (Q ∨ R))"
+  [proposition]
+  (match proposition
+    ;; ((P ∘ Q) ∘ (P ∘ R)) → (P ∘ (Q ∘ R))
+    [outer-connective [inner-connective P Q]
+     [(_ :guard #(= inner-connective)) (_ :guard #(= P)) R]]
+    [inner-connective P [outer-connective Q R]]
+    ;; (P ∘ (Q ∘ R)) → ((P ∘ Q) ∘ (P ∘ R))
+    [outer-connective P [inner-connective Q R]]
+    [inner-connective [outer-connective P Q] [outer-connective P R]]))
+
 ;; References
 ;; https://en.wikipedia.org/wiki/Rule_of_replacement, 11/12/16
 ;; https://en.wikipedia.org/wiki/Double_negation, 11/12/16
 ;; https://en.wikipedia.org/wiki/Tautology_(rule_of_inference), 11/12/16
 ;; https://en.wikipedia.org/wiki/Commutative_property, 11/12/16
 ;; https://en.wikipedia.org/wiki/Associative_property, 11/12/16
+;; https://en.wikipedia.org/wiki/Distributive_property, 11/12/16
 
 ;; https://en.wikipedia.org/wiki/Rule_of_inference, 11/12/16
 ;; https://en.wikipedia.org/wiki/Premise, 11/12/16

@@ -23,3 +23,21 @@
   (is (= [:or [:or :P :Q] :R] (r/associativity [:or :P [:or :Q :R]])))
   (is (= [:and :P [:and :Q :R]] (r/associativity [:and [:and :P :Q] :R])))
   (is (= [:or :P [:or :Q :R]] (r/associativity [:or [:or :P :Q] :R]))))
+
+(deftest test-distributivity
+  (is (= [:and [:and :P :Q] [:and :P :R]]
+         (r/distributivity [:and :P [:and :Q :R]])))
+  (is (= [:or [:or :P :Q] [:or :P :R]]
+         (r/distributivity [:or :P [:or :Q :R]])))
+  (is (= [:or [:and :P :Q] [:and :P :R]]
+         (r/distributivity [:and :P [:or :Q :R]])))
+  (is (= [:and [:or :P :Q] [:or :P :R]]
+         (r/distributivity [:or :P [:and :Q :R]])))
+  (is (= [:and :P [:and :Q :R]]
+         (r/distributivity [:and [:and :P :Q] [:and :P :R]])))
+  (is (= [:or :P [:or :Q :R]]
+         (r/distributivity [:or [:or :P :Q] [:or :P :R]])))
+  (is (= [:or :P [:and :Q :R]]
+         (r/distributivity [:and [:or :P :Q] [:or :P :R]])))
+  (is (= [:and :P [:or :Q :R]]
+         (r/distributivity [:or [:and :P :Q] [:and :P :R]]))))
