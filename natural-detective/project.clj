@@ -3,6 +3,7 @@
             :url "https://github.com/adjl/NaturalDetective"
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
+                           [org.clojure/core.match "0.3.0-alpha4"]
                            [org.clojure/tools.namespace "0.2.11"]
                            [org.clojure/tools.nrepl "0.2.12"]
                            [com.cemerick/piggieback "0.2.1"]
