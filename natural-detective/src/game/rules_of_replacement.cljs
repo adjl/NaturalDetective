@@ -1,4 +1,4 @@
-(ns game.natural-deduction)
+(ns game.rules-of-replacement)
 
 ;; Premise Backus-Naur Form
 ;; <Premise> ::= <Statement>
