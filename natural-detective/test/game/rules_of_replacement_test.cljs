@@ -15,3 +15,7 @@
 (deftest test-tautology
   (is (= :P (r/tautology [:and :P :P])))
   (is (= :P (r/tautology [:or :P :P]))))
+
+(deftest test-commutativity
+  (is (= [:and :Q :P] (r/commutativity [:and :P :Q])))
+  (is (= [:or :Q :P] (r/commutativity [:or :P :Q]))))

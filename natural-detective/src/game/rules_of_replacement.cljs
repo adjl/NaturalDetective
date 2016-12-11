@@ -38,6 +38,11 @@
   [[_ proposition proposition]]
   proposition)
 
+(defn commutativity
+  "(P ∧ Q) ↔ (Q ∧ P), (P ∨ Q) ↔ (Q ∨ P)"
+  [[connective propositionA propositionB]]
+  [connective propositionB propositionA])
+
 ;; References
 ;; https://en.wikipedia.org/wiki/Rule_of_replacement, 11/12/16
 ;; https://en.wikipedia.org/wiki/Double_negation, 11/12/16
