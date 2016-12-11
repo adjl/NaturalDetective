@@ -19,3 +19,9 @@
 (deftest test-commutativity
   (is (= [:and :Q :P] (r/commutativity [:and :P :Q])))
   (is (= [:or :Q :P] (r/commutativity [:or :P :Q]))))
+
+(deftest test-associativity
+  (is (= [:and [:and :P :Q] :R] (r/associativity [:and :P [:and :Q :R]])))
+  (is (= [:or [:or :P :Q] :R] (r/associativity [:or :P [:or :Q :R]])))
+  (is (= [:and :P [:and :Q :R]] (r/associativity [:and [:and :P :Q] :R])))
+  (is (= [:or :P [:or :Q :R]] (r/associativity [:or [:or :P :Q] :R]))))
