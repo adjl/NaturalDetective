@@ -23,28 +23,28 @@
 
 (defn double-negation-introduction
   "P → ¬¬P"
-  [P]
-  [:not [:not P]])
+  [proposition]
+  [:not [:not proposition]])
 
 (defn double-negation-elimination
   "¬¬P → P"
-  [P]
-  (let [P (flatten P)]
-    (if (odd? (count P))
-      (last P)
-      (->> P (take-last 2) vec))))
+  [proposition]
+  (let [proposition (flatten proposition)]
+    (if (odd? (count proposition))
+      (last proposition)
+      (->> proposition (take-last 2) vec))))
 
 (defn tautology
   "(P ∧ P) → P
    (P ∨ P) → P"
-  [[_ P P]]
-  P)
+  [[_ proposition proposition]]
+  proposition)
 
 (defn commutativity
   "(P ∧ Q) ↔ (Q ∧ P)
    (P ∨ Q) ↔ (Q ∨ P)"
-  [[connective P Q]]
-  [connective Q P])
+  [[connective propositionA propositionB]]
+  [connective propositionB propositionA])
 
 (defn associativity
   "(P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
