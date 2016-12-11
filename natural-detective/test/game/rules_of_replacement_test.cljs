@@ -1,17 +1,17 @@
 (ns game.rules-of-replacement-test
   (:require [cljs.test :refer-macros [deftest is]]
-            [game.rules-of-replacement :as rr]))
+            [game.rules-of-replacement :as r]))
 
 (deftest test-double-negation-introduction
-  (is (= [:not [:not :P]] (rr/double-negation-introduction :P)))
+  (is (= [:not [:not :P]] (r/double-negation-introduction :P)))
   (is (= [:not [:not [:not :P]]]
-         (rr/double-negation-introduction [:not :P]))))
+         (r/double-negation-introduction [:not :P]))))
 
 (deftest test-double-negation-elimination
-  (is (= :P (rr/double-negation-elimination [:not [:not :P]])))
+  (is (= :P (r/double-negation-elimination [:not [:not :P]])))
   (is (= [:not :P]
-         (rr/double-negation-elimination [:not [:not [:not :P]]]))))
+         (r/double-negation-elimination [:not [:not [:not :P]]]))))
 
 (deftest test-tautology
-  (is (= :P (rr/tautology [:arr :P :P])))
-  (is (= :P (rr/tautology [:or :P :P]))))
+  (is (= :P (r/tautology [:ar :P :P])))
+  (is (= :P (r/tautology [:or :P :P]))))
