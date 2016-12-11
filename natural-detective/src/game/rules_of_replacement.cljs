@@ -22,28 +22,28 @@
 
 (defn double-negation-introduction
   "P → ¬¬P"
-  [proposition]
-  [:not [:not proposition]])
+  [P]
+  [:not [:not P]])
 
 (defn double-negation-elimination
   "¬¬P → P"
-  [proposition]
-  (let [proposition (flatten proposition)]
-    (if (odd? (count proposition))
-      (last proposition)
-      (->> proposition (take-last 2) vec))))
+  [P]
+  (let [P (flatten P)]
+    (if (odd? (count P))
+      (last P)
+      (->> P (take-last 2) vec))))
 
 (defn tautology
   "(P ∧ P) → P
    (P ∨ P) → P"
-  [[_ proposition proposition]]
-  proposition)
+  [[_ P P]]
+  P)
 
 (defn commutativity
   "(P ∧ Q) ↔ (Q ∧ P)
    (P ∨ Q) ↔ (Q ∨ P)"
-  [[connective propositionA propositionB]]
-  [connective propositionB propositionA])
+  [[connective P Q]]
+  [connective Q P])
 
 ;; References
 ;; https://en.wikipedia.org/wiki/Rule_of_replacement, 11/12/16
