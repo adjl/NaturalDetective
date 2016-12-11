@@ -20,11 +20,11 @@
 ;; - Exportation?
 ;; - Negation introduction?
 
-(defn double-negation-introduction "P -> ¬¬P"
+(defn double-negation-introduction "P → ¬¬P"
   [proposition]
   [:not [:not proposition]])
 
-(defn double-negation-elimination "¬¬P -> P"
+(defn double-negation-elimination "¬¬P → P"
   [proposition]
   (let [proposition (flatten proposition)]
     (if (odd? (count proposition))
