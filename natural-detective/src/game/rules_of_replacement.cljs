@@ -67,10 +67,26 @@
    (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (Q ∨ R))"
   [proposition]
   (match proposition
-    ;; ((P ∘ Q) ∘ (P ∘ R)) → (P ∘ (Q ∘ R))
-    [outer-connective [inner-connective P Q]
-     [(_ :guard #(= inner-connective)) (_ :guard #(= P)) R]]
-    [inner-connective P [outer-connective Q R]]
+    ;; (((P ∘ R) ∘ (P ∘ S)) ∘ ((Q ∘ R) ∘ (Q ∘ S))) → ((P ∘ Q) ∘ (R ∘ S))
+    [outer-connective
+     [(_ :guard #(= outer-connective))
+      [inner-connective P R]
+      [(_ :guard #(= inner-connective)) (_ :guard #(= P)) S]]
+     [(_ :guard #(= outer-connective))
+      [(_ :guard #(= inner-connective)) Q (_ :guard #(= R))]
+      [(_ :guard #(= inner-connective)) (_ :guard #(= Q)) (_ :guard #(= S))]]]
+    [inner-connective [outer-connective P Q] [outer-connective R S]]
+    ;; ((P ∘ Q) ∘ (P|R ∘ R|S)) → ...
+    [outer-connective
+     [inner-connective P Q]
+     [(_ :guard #(= inner-connective)) R S]]
+    (if (= P R)
+      ;; ((P ∘ Q) ∘ (P ∘ R)) → (P ∘ (Q ∘ R))
+      [inner-connective P [outer-connective Q S]]
+      ;; ((P ∘ Q) ∘ (R ∘ S)) → (((P ∘ R) ∘ (P ∘ S)) ∘ ((Q ∘ R) ∘ (Q ∘ S)))
+      [inner-connective
+       [inner-connective [outer-connective P R] [outer-connective P S]]
+       [inner-connective [outer-connective Q R] [outer-connective Q S]]])
     ;; (P ∘ (Q ∘ R)) → ((P ∘ Q) ∘ (P ∘ R))
     [outer-connective P [inner-connective Q R]]
     [inner-connective [outer-connective P Q] [outer-connective P R]]))

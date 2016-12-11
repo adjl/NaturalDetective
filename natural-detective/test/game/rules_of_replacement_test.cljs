@@ -40,4 +40,36 @@
   (is (= [:or :P [:and :Q :R]]
          (r/distributivity [:and [:or :P :Q] [:or :P :R]])))
   (is (= [:and :P [:or :Q :R]]
-         (r/distributivity [:or [:and :P :Q] [:and :P :R]]))))
+         (r/distributivity [:or [:and :P :Q] [:and :P :R]])))
+  (is (= [:and
+          [:and [:and :P :R] [:and :P :S]]
+          [:and [:and :Q :R] [:and :Q :S]]]
+         (r/distributivity [:and [:and :P :Q] [:and :R :S]])))
+  (is (= [:or
+          [:or [:or :P :R] [:or :P :S]]
+          [:or [:or :Q :R] [:or :Q :S]]]
+         (r/distributivity [:or [:or :P :Q] [:or :R :S]])))
+  (is (= [:or
+          [:or [:and :P :R] [:and :P :S]]
+          [:or [:and :Q :R] [:and :Q :S]]]
+         (r/distributivity [:and [:or :P :Q] [:or :R :S]])))
+  (is (= [:and
+          [:and [:or :P :R] [:or :P :S]]
+          [:and [:or :Q :R] [:or :Q :S]]]
+         (r/distributivity [:or [:and :P :Q] [:and :R :S]])))
+  (is (= [:and [:and :P :Q] [:and :R :S]]
+         (r/distributivity [:and
+                            [:and [:and :P :R] [:and :P :S]]
+                            [:and [:and :Q :R] [:and :Q :S]]])))
+  (is (= [:or [:or :P :Q] [:or :R :S]]
+         (r/distributivity [:or
+                            [:or [:or :P :R] [:or :P :S]]
+                            [:or [:or :Q :R] [:or :Q :S]]])))
+  (is (= [:or [:and :P :Q] [:and :R :S]]
+         (r/distributivity [:and
+                            [:and [:or :P :R] [:or :P :S]]
+                            [:and [:or :Q :R] [:or :Q :S]]])))
+  (is (= [:and [:or :P :Q] [:or :R :S]]
+         (r/distributivity [:or
+                            [:or [:and :P :R] [:and :P :S]]
+                            [:or [:and :Q :R] [:and :Q :S]]]))))
