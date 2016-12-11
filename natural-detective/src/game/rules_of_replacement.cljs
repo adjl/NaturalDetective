@@ -37,14 +37,16 @@
 (defn tautology
   "(P ∧ P) → P
    (P ∨ P) → P"
-  [[_ proposition proposition]]
-  proposition)
+  [proposition]
+  (match proposition
+    [_ P (_ :guard #(= P))] P))
 
 (defn commutativity
   "(P ∧ Q) ↔ (Q ∧ P)
    (P ∨ Q) ↔ (Q ∨ P)"
-  [[connective propositionA propositionB]]
-  [connective propositionB propositionA])
+  [proposition]
+  (match proposition
+    [connective P Q] [connective Q P]))
 
 (defn associativity
   "(P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
