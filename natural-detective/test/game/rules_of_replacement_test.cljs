@@ -13,5 +13,5 @@
          (r/double-negation-elimination [:not [:not [:not :P]]]))))
 
 (deftest test-tautology
-  (is (= :P (r/tautology [:ar :P :P])))
+  (is (= :P (r/tautology [:and :P :P])))
   (is (= :P (r/tautology [:or :P :P]))))
