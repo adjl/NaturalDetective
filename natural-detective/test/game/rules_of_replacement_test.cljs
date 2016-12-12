@@ -113,3 +113,8 @@
   (testing "Transposition"
     (is (= [:impl [:not :Q] [:not :P]] (r/transposition [:impl :P :Q])))
     (is (= [:impl :P :Q] (r/transposition [:impl [:not :Q] [:not :P]])))))
+
+(deftest test-exportation
+  (testing "Exportation"
+    (is (= [:impl :P [:impl :Q :R]] (r/exportation [:impl [:and :P :Q] :R])))
+    (is (= [:impl [:and :P :Q] :R] (r/exportation [:impl :P [:impl :Q :R]])))))

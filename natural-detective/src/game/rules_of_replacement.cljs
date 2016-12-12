@@ -18,7 +18,7 @@
 ;; - De Morgan's Laws (De Morgan's Rule)
 ;; - Material Implication
 ;; - Transposition
-;; - Exportation?
+;; - Exportation
 ;; - Negation introduction?
 
 (defn double-negation-introduction
@@ -126,3 +126,12 @@
     [:impl [:not Q] [:not P]] [:impl P Q]
     ;; P→Q → ¬Q→¬P
     [:impl P Q]               [:impl [:not Q] [:not P]]))
+
+(defn exportation
+  "(P ∧ Q) → R ↔ P → (Q → R)"
+  [proposition]
+  (match proposition
+    ;; (P∧Q)→R → P→(Q→R)
+    [:impl [:and P Q] R]  [:impl P [:impl Q R]]
+    ;; P→(Q→R) → (P∧Q)→R
+    [:impl P [:impl Q R]] [:impl [:and P Q] R]))
