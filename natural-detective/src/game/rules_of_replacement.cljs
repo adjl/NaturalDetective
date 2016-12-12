@@ -39,7 +39,7 @@
    (P ∨ P) → P"
   [proposition]
   (match proposition
-    [_ P (_ :guard #(= P))] P))
+    [_ P _P] (if (= P _P) P)))
 
 (defn commutativity
   "(P ∧ Q) ↔ (Q ∧ P)
@@ -54,11 +54,13 @@
   [proposition]
   (match proposition
     ;; (P ∘ (Q ∘ R)) → ((P ∘ Q) ∘ R)
-    [connective P [(_ :guard #(= connective)) Q R]]
-    [connective [connective P Q] R]
+    [connective P [_connective Q R]]
+    (if (= connective _connective)
+      [connective [connective P Q] R])
     ;; ((P ∘ Q) ∘ R) → (P ∘ (Q ∘ R))
-    [connective [(_ :guard #(= connective)) P Q] R]
-    [connective P [connective Q R]]))
+    [connective [_connective P Q] R]
+    (if (= connective _connective)
+      [connective P [connective Q R]])))
 
 (defn distributivity
   "(P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ (Q ∧ R))
@@ -69,18 +71,17 @@
   (match proposition
     ;; (((P ∘ R) ∘ (P ∘ S)) ∘ ((Q ∘ R) ∘ (Q ∘ S))) → ((P ∘ Q) ∘ (R ∘ S))
     [outer-connective
-     [(_ :guard #(= outer-connective))
-      [inner-connective P R]
-      [(_ :guard #(= inner-connective)) (_ :guard #(= P)) S]]
-     [(_ :guard #(= outer-connective))
-      [(_ :guard #(= inner-connective)) Q (_ :guard #(= R))]
-      [(_ :guard #(= inner-connective)) (_ :guard #(= Q)) (_ :guard #(= S))]]]
-    [inner-connective [outer-connective P Q] [outer-connective R S]]
+     [_outer-connective [inner-connective P R] [_inner-connective _P S]]
+     [__outer-connective [__inner-connective Q _R] [___inner-connective _Q _S]]]
+    (if
+     (and
+      (= outer-connective _outer-connective __outer-connective)
+      (= inner-connective _inner-connective __inner-connective ___inner-connective)
+      (= P _P) (= Q _Q) (= R _R) (= S _S))
+      [inner-connective [outer-connective P Q] [outer-connective R S]])
     ;; ((P ∘ Q) ∘ (P|R ∘ R|S)) → ...
-    [outer-connective
-     [inner-connective P Q]
-     [(_ :guard #(= inner-connective)) R S]]
-    (if (= P R)
+    [outer-connective [inner-connective P Q] [_inner-connective R S]]
+    (if (and (= inner-connective _inner-connective) (= P R))
       ;; ((P ∘ Q) ∘ (P ∘ R)) → (P ∘ (Q ∘ R))
       [inner-connective P [outer-connective Q S]]
       ;; ((P ∘ Q) ∘ (R ∘ S)) → (((P ∘ R) ∘ (P ∘ S)) ∘ ((Q ∘ R) ∘ (Q ∘ S)))
