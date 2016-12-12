@@ -58,7 +58,6 @@
     [c P [_c Q R]]
     (if (= c _c)
       [c [c P Q] R])
-
     ;; (P∘Q)∘R → P∘(Q∘R)
     [c [_c P Q] R]
     (if (= c _c)
@@ -102,25 +101,19 @@
   (letfn [(flip [c] (if (= c :and) :or :and))]
     (match proposition
       ;; ¬(¬P∘¬Q) → P∘Q
-      [:not [c [:not P] [:not Q]]]
-      [(flip c) P Q]
+      [:not [c [:not P]     [:not Q]]] [(flip c) P Q]
       ;; ¬(P∘Q) → ¬P∘¬Q
-      [:not [c P Q]]
-      [(flip c) [:not P] [:not Q]]
+      [:not [c P Q]]        [(flip c) [:not P] [:not Q]]
       ;; ¬P∘¬Q → ¬(P∘Q)
-      [c [:not P] [:not Q]]
-      [:not [(flip c) P Q]]
+      [c [:not P] [:not Q]] [:not [(flip c) P Q]]
       ;; P∘Q → ¬(¬P∘¬Q)
-      [c P Q]
-      [:not [(flip c) [:not P] [:not Q]]])))
+      [c P Q]               [:not [(flip c) [:not P] [:not Q]]])))
 
 (defn material-implication
   "P → Q ↔ ¬P ∨ Q"
   [proposition]
   (match proposition
     ;; P→Q → ¬P∨Q
-    [:impl P Q]
-    [:or [:not P] Q]
+    [:impl P Q]      [:or [:not P] Q]
     ;; ¬P∨Q → P→Q
-    [:or [:not P] Q]
-    [:impl P Q]))
+    [:or [:not P] Q] [:impl P Q]))
