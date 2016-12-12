@@ -16,8 +16,8 @@
 ;; - Associativity
 ;; - Distributivity
 ;; - De Morgan's Laws (De Morgan's Rule)
-;; - Transposition
 ;; - Material Implication
+;; - Transposition
 ;; - Exportation?
 ;; - Negation introduction?
 
