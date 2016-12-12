@@ -113,3 +113,14 @@
       ;; P∘Q → ¬(¬P∘¬Q)
       [c P Q]
       [:not [(flip c) [:not P] [:not Q]]])))
+
+(defn material-implication
+  "P → Q ↔ ¬P ∨ Q"
+  [proposition]
+  (match proposition
+    ;; P→Q → ¬P∨Q
+    [:impl P Q]
+    [:or [:not P] Q]
+    ;; ¬P∨Q → P→Q
+    [:or [:not P] Q]
+    [:impl P Q]))

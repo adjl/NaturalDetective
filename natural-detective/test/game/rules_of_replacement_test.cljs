@@ -103,3 +103,8 @@
   (testing "Negation of disjunction substitution form"
     (is (= [:not [:and [:not :P] [:not :Q]] (r/de-morgans-law [:or :P :Q])]))
     (is (= [:or :P :Q] (r/de-morgans-law [:not [:and [:not :P] [:not :Q]]])))))
+
+(deftest test-material-implication
+  (testing "Material implication"
+    (is (= [:or [:not :P] :Q] (r/material-implication [:impl :P :Q])))
+    (is (= [:impl :P :Q] (r/material-implication [:or [:not :P] :Q])))))
