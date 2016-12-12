@@ -89,3 +89,17 @@
            (r/distributivity [:or
                               [:or [:and :P :R] [:and :P :S]]
                               [:or [:and :Q :R] [:and :Q :S]]])))))
+
+(deftest test-de-morgans-law
+  (testing "Negation of conjunction"
+    (is (= [:or [:not :P] [:not :Q]] (r/de-morgans-law [:not [:and :P :Q]])))
+    (is (= [:not [:and :P :Q]] (r/de-morgans-law [:or [:not :P] [:not :Q]]))))
+  (testing "Negation of disjunction"
+    (is (= [:and [:not :P] [:not :Q]] (r/de-morgans-law [:not [:or :P :Q]])))
+    (is (= [:not [:or :P :Q]] (r/de-morgans-law [:and [:not :P] [:not :Q]]))))
+  (testing "Negation of conjunction substitution form"
+    (is (= [:not [:or [:not :P] [:not :Q]] (r/de-morgans-law [:and :P :Q])]))
+    (is (= [:and :P :Q] (r/de-morgans-law [:not [:or [:not :P] [:not :Q]]]))))
+  (testing "Negation of disjunction substitution form"
+    (is (= [:not [:and [:not :P] [:not :Q]] (r/de-morgans-law [:or :P :Q])]))
+    (is (= [:or :P :Q] (r/de-morgans-law [:not [:and [:not :P] [:not :Q]]])))))

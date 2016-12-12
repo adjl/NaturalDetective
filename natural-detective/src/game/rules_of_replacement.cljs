@@ -92,3 +92,24 @@
     ;; P∘(Q∘R) → (P∘Q)∘(P∘R)
     [co P [ci Q R]]
     [ci [co P Q] [co P R]]))
+
+(defn de-morgans-law
+  "¬(P ∧ Q) ↔ ¬P ∨ ¬Q
+   ¬(P ∨ Q) ↔ ¬P ∧ ¬Q
+   P ∧ Q ↔ ¬(¬P ∨ ¬Q)
+   P ∨ Q ↔ ¬(¬P ∧ ¬Q)"
+  [proposition]
+  (letfn [(flip [c] (if (= c :and) :or :and))]
+    (match proposition
+      ;; ¬(¬P∘¬Q) → P∘Q
+      [:not [c [:not P] [:not Q]]]
+      [(flip c) P Q]
+      ;; ¬(P∘Q) → ¬P∘¬Q
+      [:not [c P Q]]
+      [(flip c) [:not P] [:not Q]]
+      ;; ¬P∘¬Q → ¬(P∘Q)
+      [c [:not P] [:not Q]]
+      [:not [(flip c) P Q]]
+      ;; P∘Q → ¬(¬P∘¬Q)
+      [c P Q]
+      [:not [(flip c) [:not P] [:not Q]]])))
