@@ -4,10 +4,10 @@
 ;; Premise Backus-Naur Form
 ;; <Premise> ::= <Statement>
 ;; 						 | [<Not> <Premise>]
-;; 						 | [<Connective> <Premise> <Premise>]
+;; 						 | [<c> <Premise> <Premise>]
 ;; <Statement> ::= :A | :B | ...
 ;; <Not> ::= :not
-;; <Connective> ::= :and | :or
+;; <c> ::= :and | :or
 
 ;; Rules of Replacement (Rules of Equivalence)
 ;; - Double Negation: Introduction, Elimination
@@ -39,14 +39,15 @@
    (P ∨ P) → P"
   [proposition]
   (match proposition
-    [_ P _P] (if (= P _P) P)))
+    [_ P _P]
+    (if (= P _P) P)))
 
 (defn commutativity
   "(P ∧ Q) ↔ (Q ∧ P)
    (P ∨ Q) ↔ (Q ∨ P)"
   [proposition]
   (match proposition
-    [connective P Q] [connective Q P]))
+    [c P Q] [c Q P]))
 
 (defn associativity
   "(P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
@@ -54,13 +55,14 @@
   [proposition]
   (match proposition
     ;; (P ∘ (Q ∘ R)) → ((P ∘ Q) ∘ R)
-    [connective P [_connective Q R]]
-    (if (= connective _connective)
-      [connective [connective P Q] R])
+    [c P [_c Q R]]
+    (if (= c _c)
+      [c [c P Q] R])
+
     ;; ((P ∘ Q) ∘ R) → (P ∘ (Q ∘ R))
-    [connective [_connective P Q] R]
-    (if (= connective _connective)
-      [connective P [connective Q R]])))
+    [c [_c P Q] R]
+    (if (= c _c)
+      [c P [c Q R]])))
 
 (defn distributivity
   "(P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ (Q ∧ R))
@@ -70,27 +72,26 @@
   [proposition]
   (match proposition
     ;; (((P ∘ R) ∘ (P ∘ S)) ∘ ((Q ∘ R) ∘ (Q ∘ S))) → ((P ∘ Q) ∘ (R ∘ S))
-    [outer-connective
-     [_outer-connective [inner-connective P R] [_inner-connective _P S]]
-     [__outer-connective [__inner-connective Q _R] [___inner-connective _Q _S]]]
-    (if
-     (and
-      (= outer-connective _outer-connective __outer-connective)
-      (= inner-connective _inner-connective __inner-connective ___inner-connective)
-      (= P _P) (= Q _Q) (= R _R) (= S _S))
-      [inner-connective [outer-connective P Q] [outer-connective R S]])
+    [co
+     [_co [ci P R] [_ci _P S]]
+     [__co [__ci Q _R] [___ci _Q _S]]]
+    (if (and (= co _co __co) (= ci _ci __ci ___ci)
+             (= P _P) (= Q _Q) (= R _R) (= S _S))
+      [ci [co P Q] [co R S]])
+
     ;; ((P ∘ Q) ∘ (P|R ∘ R|S)) → ...
-    [outer-connective [inner-connective P Q] [_inner-connective R S]]
-    (if (and (= inner-connective _inner-connective) (= P R))
+    [co [ci P Q] [_ci R S]]
+    (if (and (= ci _ci) (= P R))
       ;; ((P ∘ Q) ∘ (P ∘ R)) → (P ∘ (Q ∘ R))
-      [inner-connective P [outer-connective Q S]]
+      [ci P [co Q S]]
       ;; ((P ∘ Q) ∘ (R ∘ S)) → (((P ∘ R) ∘ (P ∘ S)) ∘ ((Q ∘ R) ∘ (Q ∘ S)))
-      [inner-connective
-       [inner-connective [outer-connective P R] [outer-connective P S]]
-       [inner-connective [outer-connective Q R] [outer-connective Q S]]])
+      [ci
+       [ci [co P R] [co P S]]
+       [ci [co Q R] [co Q S]]])
+
     ;; (P ∘ (Q ∘ R)) → ((P ∘ Q) ∘ (P ∘ R))
-    [outer-connective P [inner-connective Q R]]
-    [inner-connective [outer-connective P Q] [outer-connective P R]]))
+    [co P [ci Q R]]
+    [ci [co P Q] [co P R]]))
 
 ;; References
 ;; https://en.wikipedia.org/wiki/Rule_of_replacement, 11/12/16
