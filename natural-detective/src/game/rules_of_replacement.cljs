@@ -1,14 +1,6 @@
 (ns game.rules-of-replacement
   (:require [cljs.core.match :refer-macros [match]]))
 
-;; Premise Backus-Naur Form
-;; <Premise> ::= <Statement>
-;; 						 | [<Not> <Premise>]
-;; 						 | [<c> <Premise> <Premise>]
-;; <Statement> ::= :A | :B | ...
-;; <Not> ::= :not
-;; <c> ::= :and | :or
-
 ;; Rules of Replacement (Rules of Equivalence)
 ;; - Double Negation: Introduction, Elimination
 ;; - Tautology
