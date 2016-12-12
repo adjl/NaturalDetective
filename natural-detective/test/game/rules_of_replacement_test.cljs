@@ -108,3 +108,8 @@
   (testing "Material implication"
     (is (= [:or [:not :P] :Q] (r/material-implication [:impl :P :Q])))
     (is (= [:impl :P :Q] (r/material-implication [:or [:not :P] :Q])))))
+
+(deftest test-transposition
+  (testing "Transposition"
+    (is (= [:impl [:not :Q] [:not :P]] (r/transposition [:impl :P :Q])))
+    (is (= [:impl :P :Q] (r/transposition [:impl [:not :Q] [:not :P]])))))

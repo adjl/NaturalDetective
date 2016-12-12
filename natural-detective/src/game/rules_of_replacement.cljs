@@ -117,3 +117,12 @@
     [:impl P Q]      [:or [:not P] Q]
     ;; ¬P∨Q → P→Q
     [:or [:not P] Q] [:impl P Q]))
+
+(defn transposition
+  "P → Q ↔ ¬Q → ¬P"
+  [proposition]
+  (match proposition
+    ;; ¬Q→¬P → P→Q
+    [:impl [:not Q] [:not P]] [:impl P Q]
+    ;; P→Q → ¬Q→¬P
+    [:impl P Q]               [:impl [:not Q] [:not P]]))
