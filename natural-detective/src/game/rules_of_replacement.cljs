@@ -19,7 +19,6 @@
 ;; - Material Implication
 ;; - Transposition
 ;; - Exportation
-;; - Negation introduction?
 
 (defn double-negation-introduction
   "P → ¬¬P"
