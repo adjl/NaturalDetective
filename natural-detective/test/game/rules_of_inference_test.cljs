@@ -8,3 +8,10 @@
     (is (= :Q (i/disjunctive-syllogism [:or :Q :P] [:not :P])))
     (is (= :Q (i/disjunctive-syllogism [:not :P] [:or :P :Q])))
     (is (= :Q (i/disjunctive-syllogism [:not :P] [:or :Q :P])))))
+
+(deftest test-hypothetical-syllogism
+  (testing "Hypothetical syllogism"
+    (is (= [:impl :P :R]
+           (i/hypothetical-syllogism [:impl :P :Q] [:impl :Q :R])))
+    (is (= [:impl :P :R]
+           (i/hypothetical-syllogism [:impl :Q :R] [:impl :P :Q])))))
