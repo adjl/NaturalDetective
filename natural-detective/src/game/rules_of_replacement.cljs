@@ -2,15 +2,17 @@
   (:require [cljs.core.match :refer-macros [match]]))
 
 ;; Rules of Replacement (Rules of Equivalence)
-;; - Double Negation: Introduction, Elimination
+;; - Double negation: introduction, elimination
 ;; - Tautology
 ;; - Commutativity
 ;; - Associativity
 ;; - Distributivity
-;; - De Morgan's Laws (De Morgan's Rule)
-;; - Material Implication
+;; - De Morgan's Laws
+;; - Material implication
 ;; - Transposition
 ;; - Exportation
+;; - Material equivalence
+;; - Negation introduction
 
 (defn double-negation-introduction
   "P → ¬¬P"
