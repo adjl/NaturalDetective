@@ -3,6 +3,7 @@
 
 ;; Rules of Inference (Rules of Implication)
 ;; - Conjunction introduction
+;; - Conjunction elimination
 ;; - Disjunctive syllogism (Modus tollendo ponens)
 ;; - Hypothetical syllogism
 ;; - Modus ponens (Modus ponendo ponens)
@@ -14,6 +15,14 @@
    (conjunction-introduction [premise-0 premise-1]))
   ([[metavar-0 metavar-1]]
    [:and metavar-0 metavar-1]))
+
+(defn conjunction-elimination
+  "P ∧ Q ⊢ P
+   P ∧ Q ⊢ Q"
+  [premise emit]
+  (match premise
+    [:and P Q]
+    (if (= emit :first) P Q)))
 
 (defn disjunctive-syllogism
   "P ∨ Q, ¬P ⊢ Q"

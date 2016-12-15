@@ -6,6 +6,11 @@
   (testing "Conjunction introduction"
     (is (= [:and :P :Q] (i/conjunction-introduction :P :Q)))))
 
+(deftest test-conjunction-elimination
+  (testing "Conjunction elimination"
+    (is (= :P (i/conjunction-elimination [:and :P :Q] :first)))
+    (is (= :Q (i/conjunction-elimination [:and :P :Q] nil)))))
+
 (deftest test-disjunctive-syllogism
   (testing "Disjunctive syllogism"
     (is (= :Q (i/disjunctive-syllogism [:or :P :Q] [:not :P])))
