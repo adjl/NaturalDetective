@@ -4,6 +4,7 @@
 ;; Rules of Inference (Rules of Implication)
 ;; - Disjunctive syllogism (Modus tollendo ponens)
 ;; - Hypothetical syllogism
+;; - Modus ponens (Modus ponendo ponens)
 
 (defn disjunctive-syllogism
   "P ∨ Q, ¬P ⊢ Q"
@@ -29,3 +30,14 @@
            [:impl metavar-0 metavar-3]
            (= metavar-0 metavar-3) ;; Q → R, P → Q
            [:impl metavar-2 metavar-1]))))
+
+(defn modus-ponens
+  "P → Q, P ⊢ Q"
+  ([premise-0 premise-1]
+   (modus-ponens [premise-0 premise-1]))
+  ([premises]
+   (match premises
+     [[:impl metavar-0 metavar-1] metavar-2] ;; P → Q, P
+     (if (= metavar-0 metavar-2) metavar-1)
+     [metavar-2 [:impl metavar-0 metavar-1]] ;; P, P → Q
+     (if (= metavar-0 metavar-2) metavar-1))))

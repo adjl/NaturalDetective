@@ -15,3 +15,8 @@
            (i/hypothetical-syllogism [:impl :P :Q] [:impl :Q :R])))
     (is (= [:impl :P :R]
            (i/hypothetical-syllogism [:impl :Q :R] [:impl :P :Q])))))
+
+(deftest test-modus-ponens
+  (testing "Modus ponens"
+    (is (= :Q (i/modus-ponens [:impl :P :Q] :P)))
+    (is (= :Q (i/modus-ponens :P [:impl :P :Q])))))
