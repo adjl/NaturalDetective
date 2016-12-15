@@ -20,3 +20,8 @@
   (testing "Modus ponens"
     (is (= :Q (i/modus-ponens [:impl :P :Q] :P)))
     (is (= :Q (i/modus-ponens :P [:impl :P :Q])))))
+
+(deftest test-modus-tollens
+  (testing "Modus tollens"
+    (is (= [:not :P] (i/modus-tollens [:impl :P :Q] [:not :Q])))
+    (is (= [:not :P] (i/modus-tollens [:not :Q] [:impl :P :Q])))))

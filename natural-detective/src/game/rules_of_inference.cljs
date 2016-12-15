@@ -5,6 +5,7 @@
 ;; - Disjunctive syllogism (Modus tollendo ponens)
 ;; - Hypothetical syllogism
 ;; - Modus ponens (Modus ponendo ponens)
+;; - Modus tollens (Modus tollendo tollens)
 
 (defn disjunctive-syllogism
   "P ∨ Q, ¬P ⊢ Q"
@@ -41,3 +42,14 @@
      (if (= metavar-0 metavar-2) metavar-1)
      [metavar-2 [:impl metavar-0 metavar-1]] ;; P, P → Q
      (if (= metavar-0 metavar-2) metavar-1))))
+
+(defn modus-tollens
+  "P → Q, ¬Q ⊢ ¬P"
+  ([premise-0 premise-1]
+   (modus-tollens [premise-0 premise-1]))
+  ([premises]
+   (match premises
+     [[:impl metavar-0 metavar-1] [:not metavar-2]] ;; P → Q, ¬Q
+     (if (= metavar-1 metavar-2) [:not metavar-0])
+     [[:not metavar-2] [:impl metavar-0 metavar-1]] ;; ¬Q, P → Q
+     (if (= metavar-1 metavar-2) [:not metavar-0]))))
