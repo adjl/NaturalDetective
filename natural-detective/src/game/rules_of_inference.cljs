@@ -2,10 +2,18 @@
   (:require [cljs.core.match :refer-macros [match]]))
 
 ;; Rules of Inference (Rules of Implication)
+;; - Conjunction introduction
 ;; - Disjunctive syllogism (Modus tollendo ponens)
 ;; - Hypothetical syllogism
 ;; - Modus ponens (Modus ponendo ponens)
 ;; - Modus tollens (Modus tollendo tollens)
+
+(defn conjunction-introduction
+  "P, Q ⊢ P ∧ Q"
+  ([premise-0 premise-1]
+   (conjunction-introduction [premise-0 premise-1]))
+  ([[metavar-0 metavar-1]]
+   [:and metavar-0 metavar-1]))
 
 (defn disjunctive-syllogism
   "P ∨ Q, ¬P ⊢ Q"
