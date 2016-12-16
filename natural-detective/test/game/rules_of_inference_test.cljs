@@ -2,19 +2,6 @@
   (:require [cljs.test :refer-macros [deftest is testing]]
             [game.rules-of-inference :as i]))
 
-(deftest test-conjunction-introduction
-  (testing "Conjunction introduction"
-    (is (= [:and :P :Q] (i/conjunction-introduction :P :Q)))))
-
-(deftest test-conjunction-elimination
-  (testing "Conjunction elimination"
-    (is (= :P (i/conjunction-elimination [:and :P :Q] :first)))
-    (is (= :Q (i/conjunction-elimination [:and :P :Q] nil)))))
-
-(deftest test-disjunction-introduction
-  (testing "Disjunction introduction"
-    (is (= [:or :P :Q] (i/disjunction-introduction :P :Q)))))
-
 (deftest test-disjunctive-syllogism
   (testing "Disjunctive syllogism"
     (is (= :Q (i/disjunctive-syllogism [:or :P :Q] [:not :P])))
@@ -38,3 +25,16 @@
   (testing "Modus tollens"
     (is (= [:not :P] (i/modus-tollens [:impl :P :Q] [:not :Q])))
     (is (= [:not :P] (i/modus-tollens [:not :Q] [:impl :P :Q])))))
+
+(deftest test-conjunction-introduction
+  (testing "Conjunction introduction"
+    (is (= [:and :P :Q] (i/conjunction-introduction :P :Q)))))
+
+(deftest test-conjunction-elimination
+  (testing "Conjunction elimination"
+    (is (= :P (i/conjunction-elimination [:and :P :Q] :first)))
+    (is (= :Q (i/conjunction-elimination [:and :P :Q] nil)))))
+
+(deftest test-disjunction-introduction
+  (testing "Disjunction introduction"
+    (is (= [:or :P :Q] (i/disjunction-introduction :P :Q)))))

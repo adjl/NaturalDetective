@@ -2,31 +2,13 @@
   (:require [cljs.core.match :refer-macros [match]]))
 
 ;; Rules of Inference (Rules of Implication)
-;; - Conjunction introduction
-;; - Conjunction elimination
-;; - Disjunction introduction
 ;; - Disjunctive syllogism (Modus tollendo ponens)
 ;; - Hypothetical syllogism
 ;; - Modus ponens (Modus ponendo ponens)
 ;; - Modus tollens (Modus tollendo tollens)
-
-(defn conjunction-introduction
-  "P, Q ⊢ P ∧ Q"
-  [premise-0 premise-1]
-  [:and premise-0 premise-1])
-
-(defn conjunction-elimination
-  "P ∧ Q ⊢ P
-   P ∧ Q ⊢ Q"
-  [premise emit]
-  (match premise
-    [:and metavar-0 metavar-1] ;; P ∧ Q
-    (if (= emit :first) metavar-0 metavar-1)))
-
-(defn disjunction-introduction
-  "P ⊢ P ∨ Q"
-  [premise-0 premise-1]
-  [:or premise-0 premise-1])
+;; - Conjunction introduction
+;; - Conjunction elimination
+;; - Disjunction introduction
 
 (defn disjunctive-syllogism
   "P ∨ Q, ¬P ⊢ Q"
@@ -65,3 +47,21 @@
     (if (= metavar-1 metavar-2) [:not metavar-0])
     [[:not metavar-2] [:impl metavar-0 metavar-1]] ;; ¬Q, P → Q
     (if (= metavar-1 metavar-2) [:not metavar-0])))
+
+(defn conjunction-introduction
+  "P, Q ⊢ P ∧ Q"
+  [premise-0 premise-1]
+  [:and premise-0 premise-1])
+
+(defn conjunction-elimination
+  "P ∧ Q ⊢ P
+   P ∧ Q ⊢ Q"
+  [premise emit]
+  (match premise
+    [:and metavar-0 metavar-1] ;; P ∧ Q
+    (if (= emit :first) metavar-0 metavar-1)))
+
+(defn disjunction-introduction
+  "P ⊢ P ∨ Q"
+  [premise-0 premise-1]
+  [:or premise-0 premise-1])
