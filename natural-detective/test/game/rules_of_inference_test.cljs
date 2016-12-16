@@ -11,6 +11,10 @@
     (is (= :P (i/conjunction-elimination [:and :P :Q] :first)))
     (is (= :Q (i/conjunction-elimination [:and :P :Q] nil)))))
 
+(deftest test-disjunction-introduction
+  (testing "Disjunction introduction"
+    (is (= [:or :P :Q] (i/disjunction-introduction :P :Q)))))
+
 (deftest test-disjunctive-syllogism
   (testing "Disjunctive syllogism"
     (is (= :Q (i/disjunctive-syllogism [:or :P :Q] [:not :P])))
